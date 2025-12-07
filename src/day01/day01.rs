@@ -33,6 +33,8 @@ fn function(path: &Path) {
 
     println!("{}", num_zero);
 }
+
+// PART TWO UNSOLVED
 fn function2(path: &Path) {
     let file: String = fs::read_to_string(path).expect("lmao something went wrong");
     let mut number: i64 = 50;
