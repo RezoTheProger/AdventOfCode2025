@@ -54,31 +54,25 @@ fn function2(path: &Path) {
 
                 if number > 100 {
                     num_zero += 1;
-                    number -= 100;
+                    number %= 100;
                 }
                 println!("{}", num_zero);
             }
 
             'L' => {
                 let overflow: i64 = number_part / 100;
-                let mut add_ons = 0;
-                if number == 0 {
-                    number += 99;
-                    add_ons = number_part % 100 + 1;
-                } else {
-                    add_ons = number_part % 100;
-                }
-
-                    number -= add_ons;
-                println!("number: {}, add:{}", number, add_ons);
-
                 num_zero += overflow;
+                let add_ons = number_part % 100;
+                println!("number: {}, sub:{}", number, add_ons);
+                number -= add_ons;
+
                 num_zero += ((number % 100) == 0) as i64;
                 if number < 0 && number != 0 {
                     num_zero += 1;
                     number += 100;
+                } else if number == 0 {
+                    number %= 100;
                 }
-                println!("number: {}, add:{}", number, add_ons);
                 println!("{}", num_zero);
             }
 
