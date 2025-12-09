@@ -36,6 +36,7 @@ fn function1(path: &Path) {
     println!("store: {}", store);
 }
 
+//UNOPTIMIZED, I KNOW ITS SHIT
 fn function2(path: &Path) {
     let file: String = fs::read_to_string(path).expect("lmao something went wrong");
     let mut store: i64 = 0;
